@@ -6,9 +6,6 @@
 #include <stdlib.h>
 int time1, time2, time3,time4,a[55];
 int j;
-
-
-
 	
 struct pd
 {
@@ -16,14 +13,13 @@ struct pd
 	int age,d,m,year;
 	double Phno;
 	int Park_num;
-	int arr_time;
+	float arr_time;
 	int num_of_seats;
 }parkdetails[10],pd2;
 
 struct billpay
 {
 	int bill_amount;//
-	int RID1;	//
 }bp;
 
 /* to store vehicle number, and its  row-col position in an array */
@@ -579,18 +575,18 @@ int main( )
 	time_t currentTime;
 	time(&currentTime);
 	printf("%s\n",ctime(&currentTime));
-	printf("\n\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\n");
-	printf("\t\t\xdb                                               \xdb\n");
-	printf("\t\t\xdb       =============================           \xdb\n");
-	printf("\t\t\xdb        VEHICLE PARKING MANAGEMENT             \xdb\n");
-	printf("\t\t\xdb       =============================           \xdb\n");
-	printf("\t\t\xdb                                               \xdb\n");
-	printf("\t\t\xdb            Brought To You By                  \xdb\n");
-	printf("\t\t\xdb                                               \xdb\n");
-	printf("\t\t\xdb                 TECHFLIX                      \xdb\n");
-	printf("\t\t\xdb                                               \xdb\n");
-	printf("\t\t\xdb                                               \xdb\n");
-	printf("\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\n\n\n");
+	printf("\n\t\t\t\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\n");
+	printf("\t\t\t\t\t\xdb                                               \xdb\n");
+	printf("\t\t\t\t\t\xdb       =============================           \xdb\n");
+	printf("\t\t\t\t\t\xdb        VEHICLE PARKING MANAGEMENT             \xdb\n");
+	printf("\t\t\t\t\t\xdb       =============================           \xdb\n");
+	printf("\t\t\t\t\t\xdb                                               \xdb\n");
+	printf("\t\t\t\t\t\xdb            Brought To You By                  \xdb\n");
+	printf("\t\t\t\t\t\xdb                                               \xdb\n");
+	printf("\t\t\t\t\t\xdb                 TECHFLIX                      \xdb\n");
+	printf("\t\t\t\t\t\xdb                                               \xdb\n");
+	printf("\t\t\t\t\t\xdb                                               \xdb\n");
+	printf("\t\t\t\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\n\n\n");
 	printf(" \n\t Press Any Key To Continue:");
 
 	getch();
@@ -615,7 +611,7 @@ int main( )
     system ( "cls" ) ;
 
 		printf ( "\nCar Parking\n" ) ;
-		printf ( "1. Booking of Vechile\n" ) ;
+		printf ( "1. Space Booking of Vehicle\n" ) ;
 		printf ( "2. Total bill/receipt.\n" ) ;
 		printf ( "3. Cancel booking\n" ) ;
 		printf ( "4. Arrival of a vehicle\n" ) ;
@@ -859,6 +855,7 @@ void book()
 	system("cls");
 	int type,number;
 	int num_of_slots;
+	printf("=======================================SPACE BOOKING===================================\n\n");
 	while ( type != TWOWHEEL && type != FOURWHEEL)
           {
 				    printf ( "Enter vehicle type (1 for Twowheel / 2 for Fourwheel ): \n" ) ;
@@ -879,7 +876,7 @@ void book()
         gets(parkdetails[i].name);
          printf("enter the %d arrival time: ",i+1);
          fflush(stdin);
-		scanf ( "%d", &parkdetails[i].arr_time ) ;
+		scanf ( "%f", &parkdetails[i].arr_time ) ;
         printf("\nEnter the Phone number of Customer %d:: ", i+1);
         fflush(stdin);
         scanf("%lf",&parkdetails[i].Phno);
@@ -910,7 +907,7 @@ void book()
             time2 = 00;
             time3 = 10;
             time4 = 00;
-            printf("Total Bill Amount: Rs 100 \n",d); 
+            printf("Total Bill Amount: Rs 50 \n",d); 
         }break;
         case 2:
 		{
@@ -918,7 +915,7 @@ void book()
 			time2 = 00;
             time3 = 12;
             time4 = 00;
-            printf("Total Bill Amount: Rs 100 \n",d); 
+            printf("Total Bill Amount: Rs 50 \n",d); 
         } break;
         case 3:
 		{
@@ -927,7 +924,7 @@ void book()
             time2 = 00;
              time3 = 13;
               time4 = 00;
-              printf("Total Bill Amount: Rs 100 \n",d); 
+              printf("Total Bill Amount: Rs 50 \n",d); 
 
         } break;
         case 4:
@@ -994,7 +991,7 @@ void book()
 void bill()
 {
     char confirm;
-    long int recsize;
+  
     time_t currentTime;
     time(&currentTime);
     int i,c;
@@ -1017,31 +1014,25 @@ void bill()
 
        if (fq==NULL)
 	{
-	   puts("File cannot be opened ");
+	   puts("File cannot be open2ed ");
 	   exit(0);
 	}
 	}
+	printf("===============================Total Bill/Receipt===================================\n\n");
 	printf("Enter the number of customers: ");
 	scanf("%d",&j);
     fread(&parkdetails,sizeof(parkdetails),1,fp);
 	fread(&bp,sizeof(bp),1,fq);
-	fseek(fp,0, SEEK_END);
-	fseek (fp,-recsize,SEEK_CUR);
-	fseek(fq,0, SEEK_END);
-	fseek (fq,-recsize,SEEK_CUR);
+
     printf("*********************** YOUR RECEIPT ****************************");
     for (i = 0; i < j; i++) 
 	{
         printf("\t\t\nCustomer %d Name: ", i+1);
         puts(parkdetails[i].name);
-        printf("\t\t\n\nPassenger %d Phone Number %.1lf",i+1,parkdetails[i].Phno);
-        printf("\tCustomer %d arrival time: ",i+1,parkdetails[i].arr_time ) ;
-        
-        printf("\t\t\n\nPassenger %d Date Of Reservation %d/%d/%d",i+1,parkdetails[i].d,parkdetails[i].m,parkdetails[i].year);
-    }
-        
+        printf("\t\t\nPassenger %d Phone Number %.1lf",i+1,parkdetails[i].Phno);
+        printf("\t\t\nPassenger %d Date Of Reservation %d/%d/%d",i+1,parkdetails[i].d,parkdetails[i].m,parkdetails[i].year);
+    }  
     printf("\t\t\n\nTotal Bill amount -: Rs %d",bp.bill_amount);
-    
     printf("\t\t\n\nTime : %s",ctime(&currentTime));
     printf("\n");
     printf("\n\nConfirm Ticket (y/n):>");
@@ -1112,7 +1103,7 @@ void cancel(void)
 	if(sec>=1 && sec<=5) 
 	{
 		printf("\nYour reservation is cancelled successfully.");
-	}
+	}	
 	else
 	{
 		printf("\nPlease enter a valid booking number to cancel reservation!");
@@ -1120,4 +1111,3 @@ void cancel(void)
 	}
 	getch();
 }
-
