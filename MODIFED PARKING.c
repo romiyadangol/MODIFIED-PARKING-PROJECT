@@ -1,10 +1,10 @@
-#include <stdio.h>
-#include <conio.h>
-#include <time.h>
-#define TWOWHEEL 1
+#include <stdio.h> // include the input/output related functions in our program.
+#include <conio.h> //contains the functions of console input and output.
+#include <time.h> //functions for manipulating date and time.
+#define TWOWHEEL 1 //preprocessor directive to declare an alias name for existing variable or any value.
 #define FOURWHEEL 2
-#include <stdlib.h>
-int time1, time2, time3,time4,a[55];
+#include <stdlib.h> // execute commands outside the C program
+int time1, time2, time3,time4,a[55];//global variabes
 int j;
 	
 struct pd
