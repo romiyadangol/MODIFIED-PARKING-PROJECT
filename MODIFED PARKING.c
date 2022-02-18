@@ -41,11 +41,11 @@ int vehcount ;  /* to store total count of vehicles */
 int twowheelcount ;	/* stores total count of twowheelers */
 int fourwheelcount ;  /* stores total count of fourwheelers */
 
-void details(void); 										//main reservation function									//main reservation function				
+void details(void); 										//main reservation function											
 int seat(int);
 void book(void);
 void bill();
-void viewdetails(void);												//view details of all the trains										//print data related to specific train	
+void viewdetails(void);										
 void login();
 void cancel(void);	 
 
