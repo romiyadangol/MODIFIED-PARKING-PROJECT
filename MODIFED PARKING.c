@@ -1,12 +1,12 @@
-#include <stdio.h> // include the input/output related functions in our program.
-#include <conio.h> //contains the functions of console input and output.
-#include <time.h> //functions for manipulating date and time.
-#define TWOWHEEL 1 //preprocessor directive to declare an alias name for existing variable or any value.
+#include <stdio.h>
+#include <conio.h>
+#include <time.h>
+#include <stdlib.h>
+#define TWOWHEEL 1
 #define FOURWHEEL 2
-#include <stdlib.h> // execute commands outside the C program
-int time1, time2, time3,time4,a[55];//global variabes
+int time1, time2, time3,time4,a[55];
 int j;
-	
+/*to store parking details*/
 struct pd
 {
 	char name[20];
@@ -14,12 +14,12 @@ struct pd
 	double Phno;
 	int Park_num;
 	float arr_time;
-	int num_of_seats;
+	int num_of_slots;
 }parkdetails[10],pd2;
-
+//store bill amt
 struct billpay
 {
-	int bill_amount;//
+	int bill_amount;
 }bp;
 
 /* to store vehicle number, and its  row-col position in an array */
@@ -41,15 +41,12 @@ int vehcount ;  /* to store total count of vehicles */
 int twowheelcount ;	/* stores total count of twowheelers */
 int fourwheelcount ;  /* stores total count of fourwheelers */
 
-void details(void); 										//main reservation function											
-int seat(int);
+										//main reservation function					
+int slot(int);
 void book(void);
 void bill();
-void viewdetails(void);										
-void login();
+void viewdetails(void);						
 void cancel(void);	 
-
-
 
 /* creates a 2-D array of two wheelers and four wheelers class */
 void display( ) ;//display information
@@ -107,7 +104,7 @@ int record(int veh,int type,int row,int col, struct tm *ct )//function declarati
     if (fp == NULL)
     {
         printf("Error!File does not exists \n");
-        return 0 ;
+        exit(0);
     }
 
     	fprintf(fp,"\n");//fprintf--> format print function sends output that is formatted to a stream.
@@ -170,8 +167,6 @@ void get_arrival_time(int num)
      	fscanf(fp,"\n");
         fscanf(fp,"%d ",&veh);
         fscanf(fp,"%d ",&type);
-       	fscanf(fp,"%d ",&row);
-        fscanf(fp,"%d ",&col);
     	fscanf(fp,"%d/%d/%d  ", &day, &mon, &year);
 		fscanf(fp,"%d:%d:%d  ", &hour, &min, &sec);
 
@@ -259,10 +254,8 @@ void finesheet(int veh,int type,int row,int col, struct tm *ct)
          getch();
     }
 	fprintf(fp,"\n");
-    fprintf(fp,"%d \n",veh);
+    fprintf(fp,"%d ",veh);
     fprintf(fp,"%d ",type);
-    fprintf(fp,"%d ",row);
-    fprintf(fp,"%d ",col);
     fprintf(fp,"%d/%d/%d ",ct->tm_mday, ct->tm_mon + 1, ct->tm_year + 1900);
 	fprintf(fp,"%d:%d:%d  ", ct->tm_hour, ct->tm_min, ct->tm_sec);
  	fprintf(fp,"%d ",50);
@@ -419,7 +412,7 @@ void login()
 	int a=0,i=0;
     char uname[10],c=' '; 
     char pword[10],code[10];
-    char user[10]="user";
+    char user[10]="kist";
     char pass[10]="pass";
     do
     {
@@ -578,7 +571,7 @@ int main( )
 	printf("\n\t\t\t\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\n");
 	printf("\t\t\t\t\t\xdb                                               \xdb\n");
 	printf("\t\t\t\t\t\xdb       =============================           \xdb\n");
-	printf("\t\t\t\t\t\xdb        VEHICLE PARKING MANAGEMENT             \xdb\n");
+	printf("\t\t\t\t\t\xdb         PARKING MANAGEMENT SYSTEM             \xdb\n");
 	printf("\t\t\t\t\t\xdb       =============================           \xdb\n");
 	printf("\t\t\t\t\t\xdb                                               \xdb\n");
 	printf("\t\t\t\t\t\xdb            Brought To You By                  \xdb\n");
@@ -610,7 +603,7 @@ int main( )
 	{
     system ( "cls" ) ;
 
-		printf ( "\nCar Parking\n" ) ;
+		printf ( "\n------------------ Parking Mangaement System-----------------\n" ) ;
 		printf ( "1. Space Booking of Vehicle\n" ) ;
 		printf ( "2. Total bill/receipt.\n" ) ;
 		printf ( "3. Cancel booking\n" ) ;
@@ -928,6 +921,8 @@ void book()
 
         } break;
         case 4:
+        	
+        	
 		{
             
             time1 = 14;
@@ -954,9 +949,9 @@ void book()
 	 {
 	 	 bp.bill_amount=50;
     fwrite(&bp,sizeof(bp),1,fq);
-    printf("\n *****For Booking Seats*****\n");
-    // Calling seat() function with number of passenger
-    seat(j);
+    printf("\n *****For Booking Slots*****\n");
+    // Calling slot() function with number of passenger
+    slot(j);
     printf("\n\nConfirm Reservation (y/n):>");
 	start:
 	scanf(" %c",&confirm);
@@ -1077,7 +1072,7 @@ void viewdetails(void)
 /*********************************************SEATDETAILS()*************************************************/
 
 // Function for chosing seats
-int seat(int p)
+int slot(int p)
 {
     int i;
     printf("\t           -:::SLOTS:::-        \n");
@@ -1086,7 +1081,7 @@ int seat(int p)
     printf("\t11\t12\t13\t14\t15\n"); 
     printf("\t16\t17\t18\t19\t20\n");
     
-    printf("\n\n\tEnter Seat Numbers: ");
+    printf("\n\n\tEnter Slot Numbers: ");
     for (i = 0; i < p; i++)
         scanf("%d", &a[i]);
 }
